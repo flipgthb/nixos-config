@@ -99,6 +99,9 @@
   # Install firefox.
   programs.firefox.enable = true;
 
+  # Install KDE Connect
+  programs.kdeconnect.enable = true;
+
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
@@ -110,9 +113,12 @@
     git
     wget
     curl
+    emacs
     vscode-fhs
     brave
     stremio
+    zotero_7
+    obs-studio
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
