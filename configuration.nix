@@ -125,7 +125,6 @@
     git
     wget
     curl
-    vi
     # emacs
     # vscode-fhs
     # brave
