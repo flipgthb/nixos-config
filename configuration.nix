@@ -10,6 +10,13 @@
       ./hardware-configuration.nix
     ];
 
+  #hardware.tuxedo-rs = {
+  #  enable = true;
+  #  tailor-gui.enable = true;
+  #};
+
+  #hardware.tuxedo-keyboard.enable = true;
+
   # Bootloader.
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
@@ -53,7 +60,7 @@
   # Configure keymap in X11
   services.xserver.xkb = {
     layout = "pt";
-    variant = "nodeadkeys";
+    #variant = "nodeadkeys";
   };
 
   # Configure console keymap
@@ -118,16 +125,17 @@
     git
     wget
     curl
-    emacs
-    vscode-fhs
-    brave
-    stremio
-    zotero_7
-    obs-studio
-    logseq
-    buku
-    beets
-    texmacs
+    vi
+    # emacs
+    # vscode-fhs
+    # brave
+    # stremio
+    # zotero_7
+    # obs-studio
+    # logseq
+    # buku
+    # beets
+    # texmacs
     #racket
     #elixir
     #rustup
