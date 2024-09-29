@@ -81,6 +81,7 @@
     # system tools
 
     # other
+    devbox
     emacs
     vscode-fhs
     brave
