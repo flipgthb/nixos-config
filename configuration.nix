@@ -112,7 +112,7 @@
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
-  # for LogSeq
+  # # for LogSeq
   nixpkgs.config.permittedInsecurePackages = [
     "electron-27.3.11"
   ];
@@ -125,22 +125,6 @@
     git
     wget
     curl
-    # emacs
-    # vscode-fhs
-    # brave
-    # stremio
-    # zotero_7
-    # obs-studio
-    # logseq
-    # buku
-    # beets
-    # texmacs
-    #racket
-    #elixir
-    #rustup
-    #python3
-    #julia
-    #clojure 
   ];
 
   # Some programs need SUID wrappers, can be configured further or are
