@@ -78,7 +78,8 @@
 
     btop  # replacement of htop/nmon
 
-    # system tools
+    # fonts
+    nerdfonts
 
     # other
     devbox
