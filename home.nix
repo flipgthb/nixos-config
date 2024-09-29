@@ -82,6 +82,7 @@
 
     # other
     devbox
+    devenv
     emacs
     vscode-fhs
     brave
@@ -94,6 +95,7 @@
     texmacs
     libreoffice-qt-fresh
     wpsoffice
+    sonic-pi
   ];
 
   programs.git = {
@@ -113,6 +115,20 @@
     #   line_break.disabled = true;
     # };
   };
+
+  {
+  # ...other config, other config...
+
+  programs = {
+    direnv = {
+      enable = true;
+      enableBashIntegration = true; # see note on other shells below
+      nix-direnv.enable = true;
+    };
+
+    # bash.enable = true; # see note on other shells below
+  };
+}
 
   # alacritty - a cross-platform, GPU-accelerated terminal emulator
   #programs.alacritty = {
