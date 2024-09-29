@@ -116,9 +116,6 @@
     # };
   };
 
-  {
-  # ...other config, other config...
-
   programs = {
     direnv = {
       enable = true;
@@ -128,7 +125,6 @@
 
     # bash.enable = true; # see note on other shells below
   };
-}
 
   # alacritty - a cross-platform, GPU-accelerated terminal emulator
   #programs.alacritty = {
