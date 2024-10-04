@@ -97,6 +97,7 @@
     libreoffice-qt-fresh
     wpsoffice
     sonic-pi
+    nyxt
   ];
 
   programs.git = {
