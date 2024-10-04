@@ -98,6 +98,8 @@
     wpsoffice
     sonic-pi
     nyxt
+    thunderbird
+    kmail
   ];
 
   programs.git = {
