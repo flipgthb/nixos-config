@@ -60,7 +60,7 @@
     wezterm
     just
     watchexec
-    # git-credential-manager
+    git-credential-manager
     gitu
 
     glicol-cli
