@@ -100,6 +100,10 @@
     nyxt
     thunderbird
     kmail
+    mpv
+    # zoom-us
+    foliate
+    steam
   ];
 
   programs.git = {
