@@ -110,8 +110,8 @@
 
   programs.git = {
     enable = true;
-    # userName = "Felippe Alves";
-    # userEmail = "flipgm@gmail.com";
+    userName = "Felippe Alves";
+    userEmail = "flipgm@gmail.com";
   };
 
   # starship - an customizable prompt for any shell
