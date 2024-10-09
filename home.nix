@@ -115,14 +115,14 @@
     # package = pkgs. gitFull;
     userName = "Felippe Alves";
     userEmail = "flipgm@gmail.com";
-    # config.credential.helper = "libsecret";   
-    # extraConfig = {
-    # credential = {
-    #   credentialStore = "secretservice";
-    #    # helper = "${nur.repos.utybo.git-credential-manager}/bin/git-credential-manager-core";
-    #   helper = "libsecret";
-    #   };
-    # };
+    # config.credential.helper = "cache";   
+    extraConfig = {
+    credential = {
+      # credentialStore = "secretservice";
+       # helper = "${nur.repos.utybo.git-credential-manager}/bin/git-credential-manager-core";
+      helper = "cache";
+      };
+    };
   };
 
   # starship - an customizable prompt for any shell
