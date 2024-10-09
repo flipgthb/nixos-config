@@ -60,10 +60,12 @@
     wezterm
     just
     watchexec
-    git-credential-manager
+    # git-credential-manager
+    github-desktop
+    gitbutler
     gitu
 
-    glicol-cli
+  glicol-cli  
 
     # misc
     file
@@ -110,8 +112,17 @@
 
   programs.git = {
     enable = true;
+    # package = pkgs. gitFull;
     userName = "Felippe Alves";
     userEmail = "flipgm@gmail.com";
+    # config.credential.helper = "libsecret";   
+    # extraConfig = {
+    # credential = {
+    #   credentialStore = "secretservice";
+    #    # helper = "${nur.repos.utybo.git-credential-manager}/bin/git-credential-manager-core";
+    #   helper = "libsecret";
+    #   };
+    # };
   };
 
   # starship - an customizable prompt for any shell
