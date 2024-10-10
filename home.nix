@@ -108,6 +108,7 @@
     # zoom-us
     foliate
     steam
+    appimagekit
   ];
 
   programs.git = {
