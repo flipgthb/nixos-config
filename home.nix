@@ -65,7 +65,7 @@
     gitbutler
     gitu
 
-  glicol-cli  
+    glicol-cli  
 
     # misc
     file
@@ -109,6 +109,7 @@
     foliate
     steam
     appimagekit
+    zed-editor
   ];
 
   programs.git = {
