@@ -32,7 +32,7 @@
     fd
     zoxide
     hyperfine
-    rargs
+    # rargs
     rm-improved
     ouch
     fclones
@@ -45,27 +45,27 @@
     tokei
     jnv
     grex
-    nomino
-    licensor
-    tabview
-    espanso-wayland
-    ast-grep
-    rnote
-    svgbob
-    broot
-    xplr
-    yazi
-    rio
+    #nomino
+    #licensor
+    #tabview
+    #espanso-wayland
+    #ast-grep
+    #rnote
+    #svgbob
+    #broot
+    #xplr
+    #yazi
+    #rio
     kalker
-    wezterm
+    #wezterm
     just
-    watchexec
+    #watchexec
     # git-credential-manager
     github-desktop
-    gitbutler
-    gitu
+    #gitbutler
+    #gitu
 
-    glicol-cli  
+    #glicol-cli
 
     # misc
     file
@@ -83,10 +83,10 @@
     btop  # replacement of htop/nmon
 
     # fonts
-    nerdfonts
+    #nerd-fonts
 
     # other
-    devbox
+    #devbox
     devenv
     emacs
     vscode-fhs
@@ -98,18 +98,20 @@
     buku
     beets
     texmacs
-    libreoffice-qt-fresh
-    wpsoffice
-    sonic-pi
-    nyxt
+    #libreoffice-qt-fresh
+    #wpsoffice
+    #sonic-pi
+    #nyxt
     thunderbird
-    kmail
+    #kmail
     mpv
     # zoom-us
     foliate
     steam
-    appimagekit
+    #appimage-run
     zed-editor
+    #teams
+    #positron-bin
   ];
 
   programs.git = {
@@ -117,7 +119,7 @@
     # package = pkgs. gitFull;
     userName = "Felippe Alves";
     userEmail = "flipgm@gmail.com";
-    # config.credential.helper = "cache";   
+    # config.credential.helper = "cache";
     extraConfig = {
     credential = {
       # credentialStore = "secretservice";
@@ -163,6 +165,18 @@
   #    selection.save_to_clipboard = true;
   #  };
   #};
+
+  services.udiskie = {
+      enable = true;
+      settings = {
+          # workaround for
+          # https://github.com/nix-community/home-manager/issues/632
+          program_options = {
+              # replace with your favorite file manager
+              file_manager = "${pkgs.nemo-with-extensions}/bin/nemo";
+          };
+      };
+  };
 
   programs.bash = {
     enable = true;

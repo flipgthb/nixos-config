@@ -73,6 +73,9 @@
   # Enable Flatpak
   services.flatpak.enable = true;
 
+  # Enable automount
+  services.udisks2.enable = true;
+
   # Enable sound with pipewire.
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -115,6 +118,12 @@
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
+
+  programs.appimage = {
+    package = pkgs.appimage-run;
+    enable = true;
+    binfmt = true;
+  };
 
   # # for LogSeq
   nixpkgs.config.permittedInsecurePackages = [
