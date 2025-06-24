@@ -97,6 +97,7 @@
   hardware.bluetooth.powerOnBoot = true;
 
   hardware.uinput.enable = true;
+  services.udev.packages = [pkgs.game-devices-udev-rules];
 
   # Enable touchpad support (enabled default in most desktopManager).
   # services.xserver.libinput.enable = true;
