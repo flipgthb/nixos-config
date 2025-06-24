@@ -178,9 +178,6 @@
       };
   };
 
-  hardware.uinput.enable = true;
-  services.udev.packages = [pkgs.game-devices-udev-rules];
-
   programs.bash = {
     enable = true;
     enableCompletion = true;
