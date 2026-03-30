@@ -1,66 +1,43 @@
-# just is a command runner, Justfile is very similar to Makefile, but simpler.
+# just is a command runner. Run `just` to list available commands.
 
-############################################################################
-#
-#  Nix commands related to the local machine
-#
-############################################################################
+host := `hostname`
 
+# Deploy current configuration
 deploy:
-  nixos-rebuild switch --flake . --use-remote-sudo
+  nixos-rebuild switch --flake .#{{host}} --sudo
 
+# Deploy with full trace output (for debugging)
 debug:
-  nixos-rebuild switch --flake . --use-remote-sudo --show-trace --verbose
+  nixos-rebuild switch --flake .#{{host}} --use-remote-sudo --show-trace --verbose
 
+# Update all flake inputs
 up:
   nix flake update
 
-# Update specific input
-# usage: make upp i=home-manager
-upp:
-  nix flake update $(i)
+# Update a specific flake input: just upp home-manager
+upp input:
+  nix flake update {{input}}
 
+# Dry-run: show what would change without applying
+dry:
+  nixos-rebuild dry-activate --flake .#{{host}} --sudo
+
+# Show system profile history
 history:
   nix profile history --profile /nix/var/nix/profiles/system
 
+# Open a nixpkgs REPL
 repl:
   nix repl -f flake:nixpkgs
 
+# Remove system generations older than 7 days
 clean:
-  # remove all generations older than 7 days
-  sudo nix profile wipe-history --profile /nix/var/nix/profiles/system  --older-than 7d
+  sudo nix profile wipe-history --profile /nix/var/nix/profiles/system --older-than 7d
 
+# Garbage collect unused nix store entries
 gc:
-  # garbage collect all unused nix store entries
   sudo nix-collect-garbage --delete-old
 
-############################################################################
-#
-#  Idols, Commands related to my remote distributed building cluster
-#
-############################################################################
-
-#add-idols-ssh-key:
-#  ssh-add ~/.ssh/ai-idols
-
-#aqua: add-idols-ssh-key
-#  nixos-rebuild --flake .#aquamarine --target-host aquamarine --build-host aquamarine switch --use-remote-sudo
-
-#aqua-debug: add-idols-ssh-key
-#  nixos-rebuild --flake .#aquamarine --target-host aquamarine --build-host aquamarine switch --use-remote-sudo --show-trace --verbose
-
-#ruby: add-idols-ssh-key
-#  nixos-rebuild --flake .#ruby --target-host ruby --build-host ruby switch --use-remote-sudo
-
-#ruby-debug: add-idols-ssh-key
-#  nixos-rebuild --flake .#ruby --target-host ruby --build-host ruby switch --use-remote-sudo --show-trace --verbose
-
-#kana: add-idols-ssh-key
-#  nixos-rebuild --flake .#kana --target-host kana --build-host kana switch --use-remote-sudo
-
-#kana-debug: add-idols-ssh-key
-#  nixos-rebuild --flake .#kana --target-host kana --build-host kana switch --use-remote-sudo --show-trace --verbose
-
-#idols: aqua ruby kana
-
-#idols-debug: aqua-debug ruby-debug kana-debug
+# Check flake for errors without building
+check:
+  nix flake check
